@@ -6,7 +6,9 @@ It's useless. But I found it cool, and it is a pretty simple example for Twitter
 
 
 ## Installation
-Copy the files, register a twitter app and fill tokens in config.php
+Copy the files, register a twitter app and fill tokens in config.php.
+
+Then, make sure you have [composer](https://getcomposer.org) notSoFarAway and run a simple `composer update`
 
 Also, change the date in Tweet.php (I let you figure how to yourself ;D)
 
