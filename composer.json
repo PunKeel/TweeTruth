@@ -1,0 +1,12 @@
+{
+    "name": "ungeek/truth",
+    "require": {
+        "abraham/twitteroauth": "0.5.*"
+    },
+    "authors": [
+        {
+            "name": "PunKeel",
+            "email": "punkeel@me.com"
+        }
+    ]
+}
