@@ -1,10 +1,11 @@
 <?php
-if(date('y-m-d') != '15-04-02'){
+$config = require_once('config.php');
+if(date('y-m-d') != $config['DATE']){
 	echo '<h1>Invalid date :(</h1>';
 	exit;
 }
 
-if(intval(date('H'))>=1){
+if(intval(date('H'))>=$config['TIME']){
 	echo '<h1>Too late :(</h1>';
 	exit;
 }
@@ -24,11 +25,11 @@ if(empty($msg) || strlen($msg)>130){
 
 require_once('vendor/autoload.php');
 use Abraham\TwitterOAuth\TwitterOAuth;
-$config = require_once('config.php');
 $connection = new TwitterOAuth($config['CONSUMER_KEY'], $config['CONSUMER_SECRET'], $config['ACCESS_TOKEN'], $config['ACCESS_TOKEN_SECRET']);
-$statues = $connection->post("statuses/update", array("status" => $msg));
+$status = $connection->post("statuses/update", array("status" => $msg));
 if($connection->getLastHttpCode() == 200){
 	echo '<h1>OK!</h1>';
+	touch('.tweet');
 	exit;
 }
 echo '<h1>An error occu<span color="red">red</span> :(</h1>';
